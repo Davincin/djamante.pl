@@ -1,0 +1,40 @@
+.header__title {
+  font-size: 3.8rem;
+}
+
+.header__text {
+  font-size: 2.2rem;
+}
+
+.header__btn {
+  font-size: 2rem;
+}
+
+.offer__item {
+  width: 40%;
+  height: 16rem;
+}
+
+.offer__item-body i {
+  font-size: 3.6rem;
+}
+
+.offer__item-title {
+  font-size: 1.5rem;
+}
+
+.aboutus__logo {
+  width: 90%;
+  height: 34rem;
+}
+
+.aboutus__description {
+  width: 90%;
+  padding: 3rem 4rem;
+}
+
+.aboutus-info__item {
+  width: 60%;
+  margin: 2rem;
+}
+/*# sourceMappingURL=medium.css.map */

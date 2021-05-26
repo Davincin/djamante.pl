@@ -1,0 +1,709 @@
+$main-color: #262A3D
+$yellow-color: #D5B44B
+$gray-color: #ececec
+$light-color: #fcfcfc
+$dark-font-color: #333333;
+$white-font-color: #ffffff;
+$light-font-color: #e4e4e4;
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+   
+html
+    font-size: 62.5%
+    
+   
+body
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem
+    color: white
+
+.container
+    width: 94%
+    max-width: 2500px
+    margin: 0 auto
+    text-align: center
+    overflow: hidden
+    
+
+.scroll-fix::before
+    display: block
+    height: 5.8rem
+    margin-top: -5.8rem
+    content: ''
+    background-color: transparent
+
+.os
+    transition: opacity .5s, transform .5s
+
+// HEADER
+
+.header
+    position: relative
+    width: 100%
+    height: 80vh
+    background-image: url('../img/header_640.webp')
+    background-size: cover
+    background-position: center
+    z-index: 5
+    
+
+    .container
+        height: 100%
+        padding-top: 6rem
+       
+    &__hero-shadow
+        position: absolute
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .7)
+        z-index: -10
+
+    &__row
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 100%
+        text-align: center
+    
+    &__title 
+        font-size: 3rem
+        text-transform: uppercase
+        color: $light-font-color
+
+    &__text
+        margin-top: 2rem
+
+    &__btn
+        position: relative
+        margin-top: 4rem
+        padding: 1rem 2rem
+        overflow: hidden
+        font-size: 1.8rem
+        font-weight: 500
+        color: $dark-font-color
+        cursor: pointer
+        background-color: $yellow-color
+        outline: none
+        text-decoration: none
+        transition: color .4s, background-color .4s
+        z-index: 0
+
+        &:focus
+            border: 1px solid #cbc3be60
+        
+        &::after
+            display: block
+            content: ''
+            position: absolute
+            left: 0
+            bottom: 0
+            height: 0
+            width: 100%
+            background-color: $main-color
+            transition: height .3s
+            z-index: -1
+
+        &:hover
+            color: #fff
+
+        &:hover::after
+            height: 110%
+
+// NAV
+
+.nav
+    position: fixed
+    top: 0
+    width: 100%
+    height: 6rem
+    background-color: $main-color
+    z-index: 100
+
+    &__row
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        height: 100%
+        max-width: 2000px
+        margin: 0 auto
+        padding: 0
+
+
+    &__logo
+        display: flex
+        align-items: center
+        height: 100%
+        margin: 0
+        padding-left: 2rem
+        font-size: 2rem
+        transition: font-size .25s
+        z-index: 4
+
+        i
+            padding-right: 1.2rem
+            font-size: 1.8rem
+    
+    &__burger-container
+        position: relative
+        padding-right: 1.5rem
+        z-index: 10
+
+        .hamburger
+                .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+                    background-color: $light-font-color
+                    
+    &__items
+        position: absolute
+        top: 6rem
+        left: -100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100vw
+        height: 260px
+        margin: 0
+        overflow: hidden
+        background-color: $main-color
+        opacity: 0
+        transition: left .4s, opacity .4s
+        z-index: 1
+
+    &--open
+        left: 0
+        opacity: 1
+
+    &__item
+        position: relative
+        margin: 0
+        padding: 2rem 2rem
+        font-size: 1.8rem
+        font-weight: 500
+        text-align: center
+        color: $light-font-color
+        text-decoration: none
+        text-transform: uppercase
+        transition: color .3s
+
+        i
+            padding-right: 1.2rem
+            font-size: 2.2rem
+            text-shadow: none
+            transition: color .3s
+    
+        &::last-child
+            margin-bottom: 2rem
+
+        &:hover
+            i
+                color: $yellow-color
+
+        &--active
+            color: $yellow-color
+            
+
+        
+
+@media screen and ( max-width: 310px)
+    .nav__logo
+        font-size: 2rem
+
+    .header__row
+        p
+            font-size: 2rem
+
+// ASIDE-PHONE
+
+.aside-phone
+    position: fixed
+    left: 0
+    bottom: 3rem
+    display: flex
+    justify-content: start
+    align-items: center
+    width: 6rem
+    height: 6rem
+    clip-path: polygon(0 0, 75% 0%, 100% 50%, 75% 100%, 0 100%, 0% 50%)
+    color: $main-color
+    text-decoration: none
+    background-color: $yellow-color
+    transition: transform .3s ease-in-out
+    z-index: 100
+
+    i
+        position: relative
+        padding-left: 1.3rem
+        font-size: 2.4rem
+
+    &--hide
+        transform: translateX(-6rem);
+
+// OFFER
+
+.offer
+    position: relative
+    padding-bottom: 5rem
+    background-color: #fcfcfc
+    z-index: 2
+
+    &__description
+        margin-bottom: 3rem
+        font-size: 1.8rem
+        color: #222222
+
+    &__items-row
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+
+    &__item
+        position: relative
+        display: flex
+        justify-content: center
+        width: 46%
+        height: 14rem
+        margin: 2rem 0
+        background-color: $gray-color
+        transition: opacity .5s ease-in
+
+    &__item-body
+        display: flex
+        align-items: center
+        height: calc(100% - 6rem)
+
+        i
+            font-size: 3.2rem
+            color: $main-color
+            
+    &__item--dark
+        background-color: $main-color
+        
+        i, .offer__item-title
+            color: #fff
+
+    &__item-title
+        position: absolute
+        bottom: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 6rem
+        padding: .5rem 1rem
+        font-size: 1.3rem
+        font-weight: 500
+        border-top: 2px solid $yellow-color
+        color: $main-color
+        text-transform: uppercase
+        z-index: 0
+
+.offer__title, .aboutus__title, .aboutus-info__title, .contact__title
+    padding: 5rem 0
+    font-size: 2.8rem
+    color: $dark-font-color
+    
+    i
+        padding-right: .4rem
+        color: $main-color
+    
+// ABOUTUS
+
+.aboutus
+    position: relative
+    color: $dark-font-color
+    z-index: 4
+    
+    &__one
+        position: relative
+        width: 100%
+        background-color: $gray-color
+        z-index: 3
+       
+    &__row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        padding-bottom: 7rem
+    
+    &__logo
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 26rem
+        transition: transform .5s, opacity .1s
+
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+
+    &__description
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        width: 100%
+        padding: 2rem 1rem
+        font-size: 1.8rem
+        line-height: 180%
+        transition: transform .5s, opacity .6s
+    
+        span
+            display: inline-block
+
+    &__offer-link
+        position: relative
+        font-weight: bold
+        text-decoration: none
+        color: $main-color
+        transition: color .3s
+
+        &::after
+           position: absolute
+           left: 0
+           bottom: 0
+           content: ''
+           width: 100%
+           height: 1px
+           background-color: $yellow-color
+           transition: height .3s
+           z-index: -1
+
+        &:hover::after
+            height: 100%
+
+.aboutus-info
+    padding-bottom: 5rem
+    overflow: hidden
+    background-color: $light-color
+    color: black
+    z-index: 5
+    
+    &__row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        
+    &__item
+        display: flex
+        flex-direction: column
+        width: 90%
+        margin-bottom: 3rem
+        padding: 3.6rem 1rem
+        color: #333333
+        background-color: $gray-color
+        transition: transform .5s ease-out, opacity .1s ease-out
+        
+        i
+            font-size: 5rem
+            color: $main-color
+            
+        h3
+            padding: 2rem 0 
+            font-size: 2rem
+            font-weight: bold
+        
+        p
+            font-size: 1.8rem
+
+        &--dark
+            background-color: $main-color
+            color: #e4e4e4
+
+            i
+              color: $yellow-color
+
+    &__underline
+        display: block
+        width: 7rem 
+        height: .4rem
+        margin: 0 auto 2rem auto
+        background-color: #626057
+
+// CONTACT
+
+.contact
+    position: relative
+    padding-bottom: 5rem
+    background-image: url('../img/contact_640.webp')
+    background-position: center
+    background-size: cover
+    z-index: 3
+    
+    &__hero-shadow
+        position: absolute
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .84)
+        z-index: -1
+
+    &__title
+        color: $light-font-color
+        padding-bottom: 3rem
+
+        i
+            color: $yellow-color
+            
+
+    &__row
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        
+    &__info, &__form
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+        padding: 1.5rem
+        transition: transform .5s, opacity .1s
+
+        h3
+            padding: 2rem 0 3rem 0
+            font-size: 2.4rem
+            text-transform: uppercase
+
+    &__info
+        border-bottom: 1px solid #bbc1c270
+        
+        p
+            padding: 1rem 0
+            font-size: 1.7rem
+
+        i
+            padding-right: 1rem
+            font-size: 2rem
+            color: $yellow-color
+           
+
+    &__social-link
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 2rem
+        text-decoration: none
+       
+        i
+            padding: 0
+            font-size: 2.5rem
+            color: #BBC1C2
+            transition: color .3s
+
+    &__social-link:hover 
+        i
+            color: $yellow-color
+
+    &__form-row
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+
+    &__form-group
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        width: 100%
+        margin-bottom: 1.5rem
+        font-size: 1.7rem
+    
+        label
+            padding-bottom: .4rem
+            font-size: 1.7rem
+
+        input
+            width: 100%
+            padding: .5rem
+            font-size: 1.7rem
+            border: 1px solid rgba(120, 120, 120, .6)
+            background-color: #0f0f0fed
+            color: $light-font-color
+            transition: outline .3s
+        
+        textarea
+            width: 100%
+            max-width: 100%
+            min-width: 100%
+            padding: .5rem
+            font-size: 1.8rem
+            background-color: #0f0f0fed
+            border: 1px solid rgba(120, 120, 120, .6)
+            color: $light-font-color
+            transition: outline .3s
+
+        input:focus, textarea:focus
+            outline: 1px solid $yellow-color
+        input:active, textarea:active
+            outline: 1px solid $yellow-color
+
+    &__submit-button
+        position: relative
+        margin-top: 1.4rem
+        padding: 1rem 2rem
+        font-size: 1.6rem
+        color: $dark-font-color
+        outline: none
+        cursor: pointer
+        background-color: $yellow-color
+        border: none
+        transition: color .3s
+        z-index: 0
+        
+        &::after
+           display: block
+           content: ''
+           position: absolute
+           left: 0
+           bottom: 0
+           width: 100%
+           height: 0
+           background-color: $main-color
+           transition: height .3s
+           z-index: -1
+
+        &:hover
+            color: $light-font-color
+        
+        &:hover::after, &:focus::after
+            height: 100%
+
+    
+    
+// FOOTER
+
+.footer
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: space-around
+    align-items: center
+    width: 100%
+    height: 12rem
+    padding: 1rem 0
+    font-size: 1.6rem
+    background-color: #1b1c1d
+    z-index: 5
+    
+
+    &__row
+        display: flex
+        justify-content: space-around
+
+    p
+        padding: 1rem 0
+
+    a
+        position: relative
+        color: $light-font-color
+        text-decoration: none
+        transition: color .3s
+        z-index: 0
+        
+
+        &::after
+           position: absolute
+           left: 0
+           bottom: 0
+           content: ''
+           width: 100%
+           height: 1px
+           background-color: $yellow-color
+           transition: height .3s
+           z-index: -1
+
+        &:hover::after
+            height: 100%
+        
+        &:hover
+            color: $dark-font-color
+
+    
+// MESSAGE 
+
+.message
+    position: relative
+    width: 100%
+    height: calc(100vh - 12rem)
+    background-image: url('../img/header_640.webp')
+    background-size: cover
+    background-position: 30% center
+    z-index: 4
+
+    .container
+        height: 100%
+
+    &__row
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        height: 100%
+
+        h1
+            padding: 2rem 0 3rem 0
+            font-size: 2.4rem
+
+    &__home-link
+        position: relative
+        margin-top: 2rem
+        padding: 1rem 2rem
+        font-size: 2rem
+        color: #ffffff
+        text-decoration: none
+        background-color: $main-color
+        z-index: 0
+            
+
+        &::after
+            display: block
+            position: absolute
+            content: ''
+            left: 0
+            bottom: 0
+            width: 100%
+            height: 0
+            background-color: $yellow-color
+            transition: height .3s
+            z-index: -1
+
+
+        i
+            padding-right: 1rem
+            color: $yellow-color
+
+        &:hover::after
+            height: 100%
+
+    &__check-icon
+        font-size: 4rem
+        color: $yellow-color
+
+// ANIMATIONS
+
+.fadeInRight
+    opacity: 0
+    transform: translate3d(-100%, 0, 0)
+
+.fadeInLeft
+    opacity: 0
+    transform: translate3d(100%, 0, 0)
+
+.fadeIn
+    opacity: 0
+    
+.fadeInUp
+    opacity: 0
+    transform: translate3d(0, 100%, 0)
+
+.os--active
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+    
